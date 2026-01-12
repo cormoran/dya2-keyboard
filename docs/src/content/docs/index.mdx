@@ -1,40 +1,73 @@
 ---
-title: Welcome to Starlight
-description: Get started building your docs site with Starlight.
-template: splash # Remove or comment out this line to display the site sidebar on this page.
+title: DYA2
+template: splash
 hero:
-  tagline: Congrats on setting up a new Starlight project!
+  title: |
+    <img src="/dya2-keyboard/dya.svg" style="display: inline-block; vertical-align: middle; margin-right: 0.3em; margin-bottom: 0.3em; height: 1em;" alt="DYA2 Logo" />
+    DYA2
+  tagline: 電池で動く据え置き向け分割型トラックボール付きキーボード
   image:
-    file: ../../assets/houston.webp
+    file: ../../assets/head_gen.jpeg
+    alt: DYA2 キーボード
   actions:
-    - text: Example Guide
-      link: /guides/example/
+    - text: ビルドガイド
+      link: /dya2-keyboard/build-guide/v1/
       icon: right-arrow
-    - text: Read the Starlight docs
-      link: https://starlight.astro.build
-      icon: external
+      variant: primary
+    - text: 設計データ
+      link: https://github.com/cormoran/dya2-keyboard
+      icon: github
+      variant: secondary
+    - text: ビルドキットを購入
+      link: https://cormoran707.booth.pm/items/6913095
+      icon: information
       variant: minimal
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { Card, CardGrid } from "@astrojs/starlight/components";
 
-## Next steps
+## 特徴
 
-<CardGrid stagger>
-	<Card title="Update content" icon="pencil">
-		Edit `src/content/docs/index.mdx` to see this page change.
-	</Card>
-	<Card title="Change page layout" icon="document">
-		Delete `template: splash` in `src/content/docs/index.mdx` to display a
-		sidebar on this page.
-	</Card>
-	<Card title="Add new content" icon="add-document">
-		Add Markdown or MDX files to `src/content/docs` to create new pages.
-	</Card>
-	<Card title="Configure your site" icon="setting">
-		Edit your `sidebar` and other config in `astro.config.mjs`.
-	</Card>
-	<Card title="Read the docs" icon="open-book">
-		Learn more in [the Starlight Docs](https://starlight.astro.build/).
-	</Card>
+<CardGrid>
+  <Card title="無線左右分割キーボード">
+    自由な手の位置でタイピングできます。
+
+    安定性を重視する場面では有線接続に切り替えることもできます。
+
+  </Card>
+  <Card title="34mm トラックボール内蔵">
+    マウスを持ち替えることなくカーソル操作が可能です。
+  </Card>
+  <Card title="タッチセンサー搭載">
+    トラックボールのスクロールモード切り替えなどに使えるタッチセンサーを左右に４つずつ搭載しています。
+  </Card>
+  <Card title="電池駆動" >
+    左右はそれぞれ単４電池１本ずつで動作します。
+
+    リチウムポリマーバッテリーと比べて発火の心配が低く、安心して使用できます。
+
+  </Card>
+  <Card title="Row Staggered 配列">
+    使い慣れた Row Staggered 配列の 60% キーボードです。
+
+    日本語配列にも対応しています。
+
+  </Card>
+  <Card title="自由なカスタマイズ">
+    ZMKファームウェアを使っておりソースコードも公開しているので、キーマップやマクロ、細かな振る舞いを自由にカスタマイズできます。
+  </Card>
 </CardGrid>
+
+## 写真
+
+## バージョン情報
+
+ハードウェアに新しい機能が追加されたり、後方互換性の無い変更が行われた場合にメジャーバージョンアップします。
+
+- **V1.0** (2026/01) - 試作版
+
+## サポート
+
+- **販売・サポート**: [Booth](https://cormoran707.booth.pm)
+- **技術情報・ソースコード**: [GitHub](https://github.com/cormoran/dya-dash-keyboard)
+- **最新情報**: X [@cormoran707](https://twitter.com/cormoran707)

@@ -1,0 +1,10 @@
+---
+import StarlightPage from "@astrojs/starlight/components/StarlightPage.astro";
+import AnchorHeading from "@astrojs/starlight/components/AnchorHeading.astro";
+
+import { App } from "./components/studio.jsx";
+---
+
+<StarlightPage frontmatter={{ title: "DYA Studio" }}>
+  <App client:only="react" />
+</StarlightPage>
