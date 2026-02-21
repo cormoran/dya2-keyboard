@@ -6,6 +6,12 @@ td {
   vertical-align: top;
 }
 
+.sl-markdown-content ul {
+  list-style: disc;
+  list-style-position: outside;
+  padding-inline-start: 1rem;
+}
+
 /* Horizontal image row layout */
 .image-row {
   display: flex;
