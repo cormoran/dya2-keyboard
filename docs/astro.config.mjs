@@ -27,7 +27,20 @@ export default defineConfig({
         light: "./public/dya-light.svg",
         dark: "./public/dya-dark.svg",
       },
+      locales: {
+        root: {
+          label: "日本語",
+          lang: "ja",
+        },
+      },
       head: [
+        {
+          tag: "meta",
+          attrs: {
+            property: "og:image",
+            content: "https://cormoran.github.io/dya2-keyboard/og-image.jpeg",
+          },
+        },
         {
           tag: "script",
           attrs: {
