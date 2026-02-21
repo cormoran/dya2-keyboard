@@ -17,6 +17,7 @@ export default defineConfig({
   },
   image: {
     layout: "constrained",
+    objectFit: "contain",
   },
   integrations: [
     starlight({
@@ -25,26 +26,25 @@ export default defineConfig({
       logo: {
         src: "./src/assets/dya.svg",
       },
-      // TODO: Google Analytics
-      //       head: [
-      //         {
-      //           tag: "script",
-      //           attrs: {
-      //             src: "https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXX",
-      //             async: true,
-      //           },
-      //         },
-      //         {
-      //           tag: "script",
-      //           content: `
-      //   window.dataLayer = window.dataLayer || [];
-      //   function gtag(){dataLayer.push(arguments);}
-      //   gtag('js', new Date());
+      head: [
+        {
+          tag: "script",
+          attrs: {
+            src: "https://www.googletagmanager.com/gtag/js?id=G-86PS6DMGQ0",
+            async: true,
+          },
+        },
+        {
+          tag: "script",
+          content: `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-      //   gtag('config', 'G-XXXXXXXXX');
-      //   `,
-      //         },
-      //       ],
+        gtag('config', 'G-86PS6DMGQ0');
+        `,
+        },
+      ],
       social: [
         {
           icon: "github",
