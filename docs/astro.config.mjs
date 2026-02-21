@@ -24,7 +24,8 @@ export default defineConfig({
       plugins: [starlightImageZoom(), starlightThemeNova()],
       title: "DYA2",
       logo: {
-        src: "./src/assets/dya.svg",
+        light: "./public/dya-light.svg",
+        dark: "./public/dya-dark.svg",
       },
       head: [
         {

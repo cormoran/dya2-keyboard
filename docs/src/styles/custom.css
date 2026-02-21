@@ -12,6 +12,14 @@ td {
   padding-inline-start: 1rem;
 }
 
+html[data-theme="dark"] .hide-on-dark-mode {
+  display: none !important;
+}
+
+html[data-theme="light"] .hide-on-light-mode {
+  display: none !important;
+}
+
 /* Horizontal image row layout */
 .image-row {
   display: flex;
