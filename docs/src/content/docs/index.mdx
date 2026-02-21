@@ -5,7 +5,7 @@ hero:
   title: |
     <img src="/dya2-keyboard/dya.svg" style="display: inline-block; vertical-align: middle; margin-right: 0.3em; margin-bottom: 0.3em; height: 1em;" alt="DYA2 Logo" />
     DYA2
-  tagline: 電池で動く据え置き向け分割型トラックボール付きキーボード
+  tagline: 電池で動く、据え置き向け分割型トラックボール付きキーボード
   image:
     file: ../../assets/head_gen.jpeg
     alt: DYA2 キーボード
@@ -19,9 +19,13 @@ hero:
       icon: github
       variant: secondary
     - text: ビルドキットを購入
-      link: https://cormoran707.booth.pm/items/6913095
+      link: https://cormoran707.booth.pm/items/7627440
       icon: information
       variant: minimal
+    - text: DYA Studio で設定
+      link: https://studio.dya.cormoran.works
+      icon: right-arrow
+      variant: secondary
 ---
 
 import { Card, CardGrid } from "@astrojs/starlight/components";
@@ -29,17 +33,20 @@ import { Card, CardGrid } from "@astrojs/starlight/components";
 ## 特徴
 
 <CardGrid>
-  <Card title="無線左右分割キーボード">
+<Card title="タッチセンサー搭載">
+    キートップに触れると動作するタッチセンサーを搭載左右に４つずつ搭載できます。
+    トラックボールのスクロールモード切り替えなどに便利です。
+  </Card>
+  <Card title="有線にも対応した無線左右分割キーボード">
     自由な手の位置でタイピングできます。
 
-    安定性を重視する場面では有線接続に切り替えることもできます。
+    安定性を重視する場面では、ケーブルを繋ぐだけで自動的に有線接続に切り替わります。
 
   </Card>
-  <Card title="34mm トラックボール内蔵">
-    マウスを持ち替えることなくカーソル操作が可能です。
-  </Card>
-  <Card title="タッチセンサー搭載">
-    トラックボールのスクロールモード切り替えなどに使えるタッチセンサーを左右に４つずつ搭載しています。
+  <Card title="Web から設定を変更できる DYA Studio 対応">
+    ファームウェアを書き換えることなく、キーマップの設定やトラックボールの調整、バッテリー履歴の確認がブラウザから行えます。
+    <a href="https://studio.dya.cormoran.works">DYA Studio</a> は iOS からも利用できます。
+
   </Card>
   <Card title="電池駆動" >
     左右はそれぞれ単４電池１本ずつで動作します。
@@ -47,14 +54,25 @@ import { Card, CardGrid } from "@astrojs/starlight/components";
     リチウムポリマーバッテリーと比べて発火の心配が低く、安心して使用できます。
 
   </Card>
-  <Card title="Row Staggered 配列">
+  <Card title="日本語配列にも対応">
     使い慣れた Row Staggered 配列の 60% キーボードです。
 
-    日本語配列にも対応しています。
+    同じハードウェアで英語配列と日本語配列の両方に対応しています。
+
+    DYA Studio も日本語配列向けの表示に対応しています。
+
+  </Card>
+  <Card title="34mm トラックボール内蔵">
+    マウスを持ち替えることなくカーソル操作が可能です。
+
+    34mmの大きなトラックボールを搭載しているので、快適に操作できます。
 
   </Card>
   <Card title="自由なカスタマイズ">
-    ZMKファームウェアを使っておりソースコードも公開しているので、キーマップやマクロ、細かな振る舞いを自由にカスタマイズできます。
+    ZMKファームウェアを使っておりソースコードも公開しています。
+
+    キーマップやマクロ、細かな振る舞いを自由にカスタマイズできます。
+
   </Card>
 </CardGrid>
 
@@ -64,7 +82,7 @@ import { Card, CardGrid } from "@astrojs/starlight/components";
 
 ハードウェアに新しい機能が追加されたり、後方互換性の無い変更が行われた場合にメジャーバージョンアップします。
 
-- **V1.0** (2026/01) - 試作版
+- **V1.1** (2026/02) - キーケット前の試作版
 
 ## サポート
 

@@ -1,0 +1,757 @@
+---
+title: 組み立て
+description: 基板とケースを組み立てます
+sidebar:
+  order: 3
+---
+
+import { Image } from "astro:assets";
+import { Steps } from "@astrojs/starlight/components";
+import topPlateSeparated from "./img/assembly/1_1_top_plate_separated.jpeg";
+import circuitBoardSeparated from "./img/assembly/1_2_circuit_board_separated.jpeg";
+
+基板の切り離しから始めて、ケースへの取り付けと動作確認を行います。
+
+:::caution[作業前の注意事項]
+
+- **FFC ケーブル**: 乱雑に扱うと断線します。折り曲げる際は緩やかに行ってください
+- **XIAO の取り付け**: コンスルーに無理な力を加えるとコンスルーが破損します
+- **タッチセンサー端子**: 乱雑に扱うと断線するかもしれません
+  :::
+
+## 1. 基板の切り離し
+
+回路基板とトッププレートを切り離します。ペンチやニッパーなどを使って基板を繋いでいるマウスビット部分を切断してください。
+回路基板の方は手で折り曲げるだけで切断できます。トッププレートの薄い部分はそのまま折り曲げると割れる可能性があるので、プレート側をペンチで挟んで支えながら切断することをおすすめします。
+
+バリが出ている場合はヤスリなどで整えます。
+
+<div className="image-row">
+  <Image src={topPlateSeparated} alt="トッププレートの切り離し後（左右）" />
+  <Image
+    src={circuitBoardSeparated}
+    alt="回路基板の切り離し後（左右）"
+
+/>
+
+</div>
+
+## 2. ボトムケースの組み立て
+
+import bottomCaseOverview from "./img/assembly/2_bottom_case_overview.jpeg";
+
+以下の部品と FFC ケーブルを用意します。
+
+<div className="image-row">
+  <Image src={bottomCaseOverview} alt="ボトムケースと部品一覧" />
+  <div>
+    <ul>
+      <li>ネジパック A</li>
+      <li>ボトムケース（左右）</li>
+      <li>電池ケース x2</li>
+      <li>制御基板 x2</li>
+      <li>XIAO 固定用カバー x2</li>
+      <li>電源スイッチカバー x2</li>
+      <li>リセットボタン x1（右側用）</li>
+      <li>XIAO nRF52840 Plus x2（ファームウェア書き込み済み）</li>
+    </ul>
+  </div>
+</div>
+
+### 2.1 電池ケースの取り付け
+
+import batteryCase from "./img/assembly/2_1_battery_case.jpeg";
+import batteryCaseScrewed from "./img/assembly/2_1_battery_case_screwed.jpeg";
+
+電池ケースをボトムケースにはめ込み、左右ともに **M2 5mm ねじ（短い方）× 2** でねじ止めします。
+
+M2 5mm ねじに適合するドライバーは１番サイズです。
+
+<div className="image-row">
+  <Image src={batteryCase} alt="電池ケースをボトムケースにはめ込む" />
+  <Image src={batteryCaseScrewed} alt="電池ケースをねじ止めする" />
+</div>
+
+### 2.2 制御基板の組み立て
+
+import xiaoBoardAndCover from "./img/assembly/2_2_1_xiao_board_and_cover.jpeg";
+import xiaoAttached from "./img/assembly/2_2_1_xiao_attached.jpeg";
+import xiaoAttachedBoth from "./img/assembly/2_2_1_xiao_attached_both.jpeg";
+import powerSw from "./img/assembly/2_2_2_power_sw.jpeg";
+import powerSwSide from "./img/assembly/2_2_2_power_sw_side.jpeg";
+import powerSwBoth from "./img/assembly/2_2_2_power_sw_both.jpeg";
+import ffcCables from "./img/assembly/2_2_3_ffc_cables.jpeg";
+import ffcRight from "./img/assembly/2_2_3_ffc_right.jpeg";
+import ffcLeft from "./img/assembly/2_2_3_ffc_left.jpeg";
+
+<Steps>
+
+1. 制御基板を切り離す
+
+   ２つの制御基板が繋がった状態で届いた場合は、基板を切り離します。手で折り曲げるだけで切り離せます。
+
+1. **XIAO をコンスルーにはめ込む**
+
+   XIAO の裏側が見えるように、USB コネクタが下側になる向きで制御基板のコンスルーの間にはめ込みます。
+
+   コンスルーのピンは XIAO のピンの切り欠き部分に入るようになっています。
+
+   <div className="image-row">
+     <Image src={xiaoBoardAndCover} alt="制御基板とカバー" />
+   </div>
+
+1. **カバーを取り付ける**
+
+   コンスルーのピンがカバーのスリットにピッタリと入っていることを確認しながら押し込みます。ずれたまま無理に押し込むとコンスルーが破損するので注意してください。
+   この時点では押し込んでも浮き上がってきますが、問題ありません。次のステップでねじ止めして固定します。
+
+   <div className="image-row">
+     <Image src={xiaoAttached} alt="XIAO の取り付け" />
+   </div>
+
+1. **左右両方にカバーを取り付ける**
+
+   <div className="image-row">
+     <Image src={xiaoAttachedBoth} alt="左右のカバー取り付け完了" />
+   </div>
+
+1. **電源スイッチカバーを取り付ける**
+
+   スイッチカバーには向きがあります。内部の切り欠きが片側に寄っているので、スペースが大きい方が基板側になるように取り付けてください。
+
+   なお、スイッチカバーは強度と見た目でトレードオフがあるため、3Dプリントの印刷方向が異なる２種類が同梱されている場合があります。その場合はお好きな方をお使いください。もし取り付け時に破損した場合はもう一方をお使いください。
+
+   <div className="image-row">
+     <Image src={powerSw} alt="電源スイッチカバー（正面）" />
+     <Image src={powerSwSide} alt="電源スイッチカバー（側面・向き確認）" />
+   </div>
+
+1. **左右両方に電源スイッチカバーを取り付ける**
+
+   <div className="image-row">
+     <Image src={powerSwBoth} alt="電源スイッチカバー左右取り付け完了" />
+   </div>
+
+1. **制御基板に FFC ケーブルを接続する**
+   - **左側の基板**: 24pin のみ接続
+   - **右側の基板**: 24pin と 6pin の両方を接続
+
+   接続方法：コネクタの黒いロックを縦にして、FFC ケーブルの金属端子が基板側に来るように差し込み、ロックを横に倒して固定します。
+
+   ２枚目の写真はロック解除の状態で、３枚目の写真はロックした状態です。
+
+   <div className="image-row">
+     <Image src={ffcCables} alt="FFC ケーブルの接続方法" />
+     <Image src={ffcLeft} alt="左側：24pin のみ接続 ロック前" />
+     <Image src={ffcRight} alt="右側：24pin + 6pin 接続　ロック後" />
+   </div>
+
+</Steps>
+
+### 2.3 制御基板のボトムケースへの取り付け（右）
+
+import resetButton from "./img/assembly/2_2_4_reset_button.jpeg";
+import resetButtonAttaching from "./img/assembly/2_2_4_reset_attaching.jpeg";
+import resetButtonAttached from "./img/assembly/2_2_4_reset_attached.jpeg";
+import mountRightBattery from "./img/assembly/2_2_5_mount_right_battery.jpeg";
+import mountRight from "./img/assembly/2_2_5_mount_right.jpeg";
+import mountRightScrew from "./img/assembly/2_2_5_mount_right_screw.jpeg";
+import mountRightScrew2 from "./img/assembly/2_2_5_mount_right_screw2.jpeg";
+
+<Steps>
+
+1.  **リセットボタンを取り付ける**
+
+    右側のボトムケースに、太い側をボトムケースに差し込むようにリセットボタンを取り付けます。
+
+    :::caution
+    右のリセットボタンは現在試験的な機能扱いです。ボタンが非常に小さいため折れやすいことがわかっています。
+
+    ファームウェアの書き込みは専用のキーマップ(`&bootloader`)を使用することでリセットボタンなしでも行えるようになっています。
+    :::
+
+    <div className="image-row">
+      <Image src={resetButton} alt="リセットボタン（取り付け前）" />
+      <Image src={resetButtonAttaching} alt="リセットボタン（取り付け中）" />
+      <Image src={resetButtonAttached} alt="リセットボタン（取り付け後）" />
+    </div>
+
+2.  **電池ケーブルを接続する**
+
+    右側の制御基板に、電池ケースのケーブルを接続します。
+
+    <div className="image-row">
+      <Image src={mountRightBattery} alt="電池ケーブルの接続" />
+    </div>
+
+3.  **制御基板をボトムケースに入れる**
+
+    USB 端子と電源スイッチが引っかからないよう、少し斜めから入れてください。力を入れなくても入るようになっています。無理に押し込むと電源スイッチやリセットボタンが破損します。
+
+    <div className="image-row">
+      <Image src={mountRight} alt="右側制御基板の挿入" />
+    </div>
+
+4.  **XIAO カバー部分をねじ止めする（長い方）**
+
+    **M2 8mm ねじ（長い方）× 3** でねじ止めします。
+
+    強く締めるとリセットボタンが押された状態になってしまう可能性があるので調整してください。
+
+    <div className="image-row">
+      <Image src={mountRightScrew} alt="右側 XIAO カバー部のねじ止め" />
+    </div>
+
+5.  **残りの穴をねじ止めする（短い方）**
+
+    **M2 5mm ねじ（短い方）× 2** でねじ止めします。
+
+    <div className="image-row">
+      <Image src={mountRightScrew2} alt="右側基板の残りのねじ止め" />
+    </div>
+
+</Steps>
+
+### 2.4 制御基板のボトムケースへの取り付け（左）
+
+import mountLeft from "./img/assembly/2_2_6_mount_left.jpeg";
+import mountLeftBattery from "./img/assembly/2_2_6_mount_left_battery.jpeg";
+import mountingLeft from "./img/assembly/2_2_6_mounting_left.jpeg";
+import mountingLeft2 from "./img/assembly/2_2_6_mounting_left2.jpeg";
+import mountLeftScrew from "./img/assembly/2_2_6_mount_left_screw.jpeg";
+import mountLeftScrew2 from "./img/assembly/2_2_6_mount_left_screw2.jpeg";
+import mountLeftScrew3 from "./img/assembly/2_2_6_mount_left_screw3.jpeg";
+
+:::note
+左側の制御基板は、右側とは裏表が逆になります。
+:::
+
+<Steps>
+
+1.  **電池ケーブルを接続する**
+
+    左側の制御基板に、電池ケースのケーブルを接続します。
+
+    <div className="image-row">
+      <Image src={mountLeft} alt="左側制御基板（裏表確認）" />
+      <Image src={mountLeftBattery} alt="電池ケーブルの接続" />
+    </div>
+
+2.  **制御基板をボトムケースに入れる**
+
+    USB 端子と電源スイッチが引っかからないよう、少し斜めから入れてください。左側は右よりも余裕が少なくなっています。基板が押し返してきて入れづらいですが、注意深く入れてください。
+
+    <div className="image-row">
+      <Image src={mountingLeft} alt="左側制御基板の挿入（途中）" />
+      <Image src={mountingLeft2} alt="左側制御基板の挿入（完了）" />
+    </div>
+
+3.  **中央の穴をねじ止めする（最初に止める）**
+
+    **M2 8mm ねじ（長い方）× 1** にナイロンワッシャーを取り付けて中央の穴をねじ止めします。強く締めすぎるとケース裏側に盛り上がりができるので、しっかり固定しつつも締めすぎに注意してください。
+
+    <div className="image-row">
+      <Image src={mountLeftScrew} alt="左側中央穴のねじ止め" />
+    </div>
+
+4.  **XIAO カバー部分の残りをねじ止めする**
+
+    **M2 8mm ねじ（長い方）× 2** とナイロンワッシャーでねじ止めします。
+
+    <div className="image-row">
+      <Image src={mountLeftScrew2} alt="左側 XIAO カバー部のねじ止め" />
+    </div>
+
+5.  **残りの穴をねじ止めする（短い方）**
+
+    **M2 5mm ねじ（短い方）× 2** でねじ止めします。
+
+    <div className="image-row">
+      <Image src={mountLeftScrew3} alt="左側基板の残りのねじ止め" />
+    </div>
+
+</Steps>
+
+## 3. エンブレムプレートの取り付け
+
+import emblemPlateParts from "./img/assembly/3_emblem_plate.jpeg";
+import emblemPlateAttached from "./img/assembly/3_emblem_plate_attached.jpeg";
+import emblemPlateBottom1 from "./img/assembly/3_emblem_plate_bottom1.jpeg";
+import emblemPlateBottom2 from "./img/assembly/3_emblem_plate_bottom2.jpeg";
+import emblemPlateBottom3 from "./img/assembly/3_emblem_plate_bottom3.jpeg";
+
+ネジパック B、ボトムエンブレム x2、ボトムケースを用意します。
+画像では右側に特注の真鍮製プレートを使用しています（詳細は[追加のカスタマイズ](/dya2-keyboard/build-guide/v1/extension)を参照）。
+
+<div className="image-row">
+  <Image src={emblemPlateParts} alt="エンブレムプレートの取り付け部品" />
+</div>
+
+エンブレムプレートをはめ込み、**M2 4mm ねじ（黒色）× 4** でねじ止めします。ねじが短いのでねじ穴が潰れやすいです。ガタつかない程度に固定できれば問題ありません。締めすぎに注意してください。
+
+M2 4mm ねじに適合するドライバーは０番サイズです。
+
+<div className="image-row">
+  <Image src={emblemPlateAttached} alt="エンブレムプレート取り付け後" />
+</div>
+
+取り付け後のボトムケースはこのような状態になります。
+
+<div className="image-row">
+  <Image src={emblemPlateBottom1} alt="エンブレムプレート取り付け後の底面" />
+</div>
+
+参考：JLCPCB で真鍮プレートを鏡面加工したものと通常仕上げの比較です。
+
+<div className="image-row">
+  <Image
+    src={emblemPlateBottom2}
+    alt="真鍮プレート（鏡面加工あり）"/>
+
+<Image src={emblemPlateBottom3} alt="真鍮プレート（通常仕上げ）" />
+
+</div>
+
+## 4. トラックボール基板の取り付け
+
+import trackballParts from "./img/assembly/4_trackball_parts.jpeg";
+import trackballLens from "./img/assembly/4_trackball_lens.jpeg";
+import trackballLens2 from "./img/assembly/4_trackball_lens2.jpeg";
+import trackballFfc from "./img/assembly/4_trackball_ffc.jpeg";
+import trackballCase from "./img/assembly/4_trackball_case.jpeg";
+import trackballCase2 from "./img/assembly/4_trackball_case2.jpeg";
+import trackballCase3 from "./img/assembly/4_trackball_case3.jpeg";
+import trackballCase4 from "./img/assembly/4_trackball_case4.jpeg";
+import trackballMounted from "./img/assembly/4_trackball_mounted.jpeg";
+import trackballScrew from "./img/assembly/4_trackball_screw.jpeg";
+import trackballScrew2 from "./img/assembly/4_trackball_screw2.jpeg";
+import trackballFinal from "./img/assembly/4_trackball_final.jpeg";
+
+ネジパック B の残りと以下の部品を用意します。
+
+<div className="image-row">
+  <Image src={trackballParts} alt="トラックボール関連部品" />
+</div>
+
+<Steps>
+
+1.  **保護シートを剥がす**
+
+    トラックボールセンサーについている茶色の保護シートを剥がします。剥がすとセンサーの穴が露出します（上の画像は剥がした状態）。
+
+2.  **レンズを取り付ける**
+
+    レンズの突起がセンサーの穴に入るように取り付けます。突起は裏側に突き出ます。はんだごてがある場合は突起部分に熱を加えて溶かして固定します。ニッパーで切断するだけでも問題ありません。
+
+    <div className="image-row">
+      <Image src={trackballLens} alt="レンズの取り付け（前）" />
+      <Image src={trackballLens2} alt="レンズの取り付け（後）" />
+    </div>
+
+3.  **6pin FFC ケーブルをセンサー基板に接続する**
+
+    コネクタの黒いロックを縦にして、FFC ケーブルの金属端子が基板側に来るようにして差し込み、ロックを横に倒して固定します。
+
+    <div className="image-row">
+      <Image src={trackballFfc} alt="トラックボールセンサーへの FFC 接続" />
+    </div>
+
+4.  **センサー基板をトラックボールケースに収める**
+
+    FFC ケーブルをうまく折り曲げて端子に負荷がかからないように差し込みます。FFC ケーブルを強く曲げると断線するので注意してください。
+
+    <div className="image-row">
+      <Image src={trackballCase} alt="センサー基板の挿入（途中 1）" />
+      <Image src={trackballCase2} alt="センサー基板の挿入（途中 2）" />
+      <Image src={trackballCase3} alt="センサー基板の挿入（途中 3）" />
+    </div>
+
+5.  **カバーを取り付ける**
+
+    奥まで差し込んだらカバーを取り付けます。
+
+    <div className="image-row">
+      <Image src={trackballCase4} alt="トラックボールケースのカバー取り付け" />
+    </div>
+
+6.  **ボトムケースに乗せて裏返す**
+
+    <div className="image-row">
+      <Image src={trackballMounted} alt="トラックボールをボトムケースに設置" />
+    </div>
+
+7.  **ねじ止めする**
+
+    **M2 4mm ねじ（黒色）× 3** で軽くねじ止めします。後でトラックボール位置を調整できるので、この時点では軽く止める程度で大丈夫です。
+
+    <div className="image-row">
+      <Image src={trackballScrew} alt="トラックボールのねじ止め" />
+      <Image src={trackballScrew2} alt="トラックボールのねじ止め（別角度）" />
+    </div>
+
+8.  **FFC ケーブルの位置を調整する**
+
+    <div className="image-row">
+      <Image src={trackballFinal} alt="FFC ケーブル位置調整後" />
+    </div>
+
+</Steps>
+
+## 5. キースイッチ基板の組み立て
+
+import keyswitchOverview from "./img/assembly/5_keyswitch.jpeg";
+import keyswitchTadpole from "./img/assembly/5_1_tadpole1.jpeg";
+import keyswitchTadpole2 from "./img/assembly/5_1_tadpole2.jpeg";
+import keyswitchSettingSwitch from "./img/assembly/5_2_setting_switch.jpeg";
+import keyswitchSettingSwitch2 from "./img/assembly/5_2_setting_switch2.jpeg";
+import keyswitchSettingSwitchBoth from "./img/assembly/5_2_setting_switch_both.jpeg";
+import keyswitchStabilizer from "./img/assembly/5_3_stabilizer_en.jpeg";
+import keyswitchPre from "./img/assembly/5_4_keyswitch_pre.jpeg";
+import keyswitchPre2 from "./img/assembly/5_4_keyswitch_pre2.jpeg";
+import keyswitchPreBoth from "./img/assembly/5_4_keyswitch_pre_both.jpeg";
+import touchSensor from "./img/assembly/5_5_touch_sensor.jpeg";
+import touchSensorTape from "./img/assembly/5_5_touch_sensor_tape.jpeg";
+import touchSensorTape2 from "./img/assembly/5_5_touch_sensor_tape2.jpeg";
+import touchSensorScrew from "./img/assembly/5_5_touch_sensor_screw.jpeg";
+import touchSensorAll from "./img/assembly/5_5_touch_sensor_all.jpeg";
+import keyswitchClick from "./img/assembly/5_6_keyswitch_click.jpeg";
+import keyswitchClick2 from "./img/assembly/5_6_keyswitch_click2.jpeg";
+import keyswitchLeft from "./img/assembly/5_6_keyswitch_left1.jpeg";
+import keyswitchLeft2 from "./img/assembly/5_6_keyswitch_left2.jpeg";
+import keyswitchTouchSensor from "./img/assembly/5_6_keyswitch_touchsensor.jpeg";
+import keyswitchTouchSensor2 from "./img/assembly/5_6_keyswitch_touchsensor2.jpeg";
+import keyswitchFinal from "./img/assembly/5_final.jpeg";
+
+以下の部品を用意します。
+
+<div className="image-row">
+  <Image src={keyswitchOverview} alt="キースイッチ基板組み立ての部品一覧" />
+  <div>
+    <ul>
+      <li>スタビライザー</li>
+      <li>キースイッチ</li>
+      <li>Tadpole ピン</li>
+      <li>設定スイッチ x4（左右２つずつ）</li>
+      <li>ねじパック C</li>
+      <li>タッチセンサー</li>
+      <li>トッププレート</li>
+      <li>キースイッチ基板</li>
+    </ul>
+  </div>
+</div>
+
+### 5.1 Tadpole ピンの取り付け
+
+Tadpole ピンをトッププレートの裏側から差し込みます。
+
+<div className="image-row">
+  <Image src={keyswitchTadpole} alt="Tadpole ピンの取り付け（右側）" />
+  <Image src={keyswitchTadpole2} alt="Tadpole ピンの取り付け（左側・裏返し）" />
+</div>
+
+### 5.2 設定スイッチの取り付け
+
+設定スイッチを左右２つずつキースイッチ基板に差し込みます。はんだ付けしない場合はピンのバネの力で導通します。はんだごてをお持ちの場合ははんだ付けを推奨します。
+
+<div className="image-row">
+  <Image src={keyswitchSettingSwitch} alt="設定スイッチの取り付け" />
+  <Image src={keyswitchSettingSwitch2} alt="設定スイッチの取り付け（別角度）" />
+  <Image src={keyswitchSettingSwitchBoth} alt="設定スイッチ左右取り付け完了" />
+</div>
+
+### 5.3 スタビライザーの取り付け
+
+キースイッチ基板にスタビライザーを取り付けます。
+
+- **英語配列**の配置は下の画像のとおりです
+- **日本語配列**の場合：右上と左内側のスタビライザーは不要、右中央のスタビライザーはエンターキーに合わせた縦向きに変更してください
+
+スタビライザーにルブを塗る場合は取り付ける前に塗ってください。
+
+<div className="image-row">
+  <Image src={keyswitchStabilizer} alt="スタビライザーの取り付け（英語配列）" />
+  <div style="align-self: center; text-align: center;">
+    日本語配列の写真: 準備中
+  </div>
+</div>
+
+### 5.4 キースイッチの仮止め
+
+トッププレートの４隅にキースイッチをはめ込み、キースイッチ基板に差し込みます。
+
+:::caution
+次の手順でタッチセンサーを取り付けるため、**親指エリアのキースイッチは今はまだ取り付けないでください**
+
+下の画像の左では誤って取り付けてしまっています。一つ上か左の場所に取り付けてください。
+:::
+
+<div className="image-row">
+  <Image src={keyswitchPre} alt="キースイッチの仮止め（片側）" />
+  <Image src={keyswitchPre2} alt="キースイッチの仮止め（別角度）" />
+  <Image src={keyswitchPreBoth} alt="キースイッチの仮止め（左右）" />
+</div>
+
+### 5.5 タッチセンサーの取り付け（スキップ可）
+
+タッチセンサーはキーキャップの裏側に貼り付けて、回路基板にねじ止めします。**端子は繊細なので丁寧に扱ってください**。
+対応しているキーは以下の画像+`V`です（**`F` と `V` はどちらか片方のみ**）。
+
+タッチセンサーは後から取り付けすることも可能です。最大８つ設置できますが、まずは使い道が明確なキーだけ取り付けることをおすすめします。
+`'` はトラックボールをスクロールモードに切り替えるのにおすすめです。
+
+<div className="image-row">
+  <Image src={touchSensor} alt="タッチセンサー対応キーの位置" />
+</div>
+
+<Steps>
+
+1.  **タッチセンサーをキーキャップに貼り付ける**
+
+    両面テープを画像のように貼り付けて４辺を折り曲げ、キーキャップ内側に貼り付けます。表裏はどちらでも良いですが、金属面をキーキャップ側（指に近い側）にすると良いかもしれません。ねじ止め部分がキーキャップの上側に来る向きにしてください。
+
+    <div className="image-row">
+      <Image src={touchSensorTape} alt="タッチセンサーへの両面テープ貼り付け" />
+      <Image
+        src={touchSensorTape2}
+        alt="タッチセンサーをキーキャップに貼り付け"
+      />
+    </div>
+
+2.  **タッチセンサーをねじ止めする**
+
+    ネジパック C の **M2 3mm ねじ × 1（センサーごと）** でねじ止めします。導通するようにしっかりとねじ止めしてください。
+
+    <div className="image-row">
+      <Image src={touchSensorScrew} alt="タッチセンサーのねじ止め" />
+      <Image src={touchSensorAll} alt="タッチセンサー全体の取り付け完了" />
+    </div>
+
+</Steps>
+
+### 5.6 残りのキースイッチとキーキャップの取り付け
+
+残りすべてのキースイッチとキーキャップを取り付けます。
+
+<div className="image-row">
+  <Image src={keyswitchLeft} alt="キースイッチ取り付け（左側途中）" />
+  <Image src={keyswitchFinal} alt="キースイッチ全て取り付け完了" />
+</div>
+
+タッチセンサー付きのキーキャップは、接続部がスイッチの上側に挟み込まれるようになります。
+
+<div className="image-row">
+  <Image
+    src={keyswitchTouchSensor}
+    alt="タッチセンサー付きキーキャップの取り付け"
+  />
+  <Image
+    src={keyswitchTouchSensor2}
+    alt="タッチセンサー付きキーキャップの取り付け（別角度）"
+  />
+  <Image
+    src={keyswitchLeft2}
+    alt="タッチセンサー付きキーキャップをスイッチに装着"
+  />
+</div>
+
+マウスの左クリックとして使うキー（`M` が推奨）にはタクタイルスピードスイッチがおすすめです。
+
+<div className="image-row">
+  <Image src={keyswitchClick} alt="左クリック用スイッチの取り付け" />
+  <Image src={keyswitchClick2} alt="左クリック用スイッチの取り付け（別角度）" />
+</div>
+
+## 6. トップケースの組み立て
+
+import topCaseOverview from "./img/assembly/6_topcase.jpeg";
+import topCaseLeftSettingSwitch from "./img/assembly/6_1_left_setting_switch.jpeg";
+import topCaseLeftCircuit from "./img/assembly/6_1_left_circuit.jpeg";
+import topCaseLeftCircuit2 from "./img/assembly/6_1_left_circuit2.jpeg";
+import topCaseLeftFfc from "./img/assembly/6_1_left_ffc.jpeg";
+import topCaseLeftFfc2 from "./img/assembly/6_1_left_ffc2.jpeg";
+import topCaseLeftMerge from "./img/assembly/6_1_left_merge.jpeg";
+import topCaseRightCircuit from "./img/assembly/6_2_right_circuit.jpeg";
+import topCaseRightFfc from "./img/assembly/6_2_right_ffc.jpeg";
+import topCaseRightMerge from "./img/assembly/6_2_right_merge.jpeg";
+import topCaseScrew from "./img/assembly/6_3_screw.jpeg";
+import topCaseScrew2 from "./img/assembly/6_3_screw2.jpeg";
+import bottomPad from "./img/assembly/6_4_pad.jpeg";
+import batteryCover from "./img/assembly/6_5_battery_cover.jpeg";
+import batteryCover2 from "./img/assembly/6_5_battery_cover2.jpeg";
+import batteryCover3 from "./img/assembly/6_5_battery_cover3.jpeg";
+
+ネジパック B の残り、ゴム足、ボトムケースと以下の部品を用意します。
+
+<div className="image-row">
+  <Image src={topCaseOverview} alt="トップケース組み立ての部品一覧" />
+</div>
+
+### 6.1 左側のトップケースの組み立て
+
+<Steps>
+
+1.  **設定スイッチを取り付ける**
+
+    左側のトップケースを裏返して設定スイッチを取り付けます。出っ張りが内側になるようにしてください（正しい向きにしか入りません）。
+
+    <div className="image-row">
+      <Image
+        src={topCaseLeftSettingSwitch}
+        alt="左側トップケースに設定スイッチを取り付け"
+      />
+    </div>
+
+2.  **回路基板を入れる**
+
+    真っ直ぐ入れると LED 部分が干渉するので、少し斜めから入れてください。
+
+    <div className="image-row">
+      <Image src={topCaseLeftCircuit} alt="左側トップケースへの回路基板挿入" />
+    </div>
+
+3.  **Tadpole ピンをはめ込む**
+
+    Tadpole ピンをトップケースの穴にしっかりと合わせて奥まで押し込みます。
+
+    <div className="image-row">
+      <Image
+        src={topCaseLeftCircuit2}
+        alt="Tadpole ピンをトップケース穴にはめ込む"
+      />
+    </div>
+
+4.  **FFC ケーブルを接続する**
+
+    ボトムケースから出ている 24pin FFC ケーブルをトップケースの回路基板に接続します。上下を合わせた状態をイメージして、ケーブルを緩やかに折り曲げて接続してください。**FFC ケーブルは強く曲げると断線します。一度曲げたら戻さないようにしてください。**
+
+    FFC ケーブルは青い樹脂部分が見える側を上に、金属端子が基板側に来るように差し込み、ロックを横に倒して固定します。
+
+    <div className="image-row">
+      <Image src={topCaseLeftFfc} alt="左側 FFC ケーブルの折り曲げ方向" />
+      <Image src={topCaseLeftFfc2} alt="左側 FFC ケーブルの接続完了" />
+    </div>
+
+5.  **ボトムケースと合体させる**
+
+    FFC ケーブルがうまく収まるように調整しながら、トップケースの回路基板をボトムケースの基板に重ねます。Tadpole ピンが外れやすいので、下の画像のように上下逆の状態で取り付けると安定します。
+
+    <div className="image-row">
+      <Image
+        src={topCaseLeftMerge}
+        alt="左側トップケースとボトムケースの合体"
+      />
+    </div>
+
+</Steps>
+
+### 6.2 右側のトップケースの組み立て
+
+<Steps>
+
+1.  **設定スイッチを取り付ける**
+
+    右側のトップケースを裏返して、設定スイッチを取り付けます。
+
+2.  **回路基板を入れる**
+
+    こちらも LED 部分が干渉するので少し斜めから入れます。入れたら Tadpole ピンをトップケースの穴にしっかりと合わせて奥まで押し込みます。
+
+    <div className="image-row">
+      <Image src={topCaseRightCircuit} alt="右側トップケースへの回路基板挿入" />
+    </div>
+
+3.  **FFC ケーブルを接続する**
+
+    ボトムケースから出ている 24pin FFC ケーブルを接続します。右側はボトムケースの基板が左とは逆向きになっているため、FFC ケーブルも左側とは逆向きになっており、折り曲げ方を変える必要があります。以下の写真を参考にしてください。**一度曲げたら戻さないようにしてください。**
+
+    <div className="image-row">
+      <Image src={topCaseRightFfc} alt="右側 FFC ケーブルの接続" />
+    </div>
+
+4.  **ボトムケースと合体させる**
+
+    FFC ケーブルがうまく収まるように調整しながら重ねてください。
+
+    <div className="image-row">
+      <Image
+        src={topCaseRightMerge}
+        alt="右側トップケースとボトムケースの合体"
+      />
+    </div>
+
+</Steps>
+
+### 6.3 動作確認
+
+ねじ止めする前に動作を確認します。
+
+:::danger
+PCとの接続は左右外側のUSB端子を使用してください。左右内側のUSB端子は左右の基板を接続するためのもので、PCとの接続には使用できません。PCが故障する可能性があります。
+
+また、左右をUSB接続した状態で左右両方をPCと接続しないでください。USB電源の逆流対策がされていないため、PCやPCのUSB端子が故障する可能性があります。
+:::
+
+<Steps>
+
+1. 有線接続での確認
+
+   右の外側のUSB 端子をPCと接続、左右の内側のUSB端子を互いに接続して、キー入力とトラックボールの動作を確認します。
+
+   なお、左の外側のUSB 端子はファームウェア書き込みのためだけに使用されます。左をPCと接続してもキーボードとしては動作しません。
+
+1. 左右無線での確認（組み立て後でもOK）
+
+   左右の内側のUSB端子を外して左に電池を入れます。左の電源をオン（スイッチを内側にスライド）にして、キー入力とトラックボールの動作を確認します。
+
+1. すべて無線での確認（組み立て後でもOK）
+
+   右側にも電池を入れて、右の電源もオンにします（スイッチを内側にスライド）。
+
+   右のLEDが黄色に点滅している状態でPCやスマートフォンとペアリングしてください。ペアリング方法の詳細は[使い方ガイド](/dya2-keyboard/usage-guide)にも記載しています。
+
+</Steps>
+
+もし左右で逆のファームウェアを書き込んでしまっていた場合は再度正しいファームウェアを書き込んでください。
+
+右側はケース裏のリセットボタンを素早く２回押すと書き込みモードに入ります。
+
+左側は上下のケースを開けて、爪楊枝の腹（尖っていない方）など突起のあるものでリセットボタンを押す必要があります。
+
+### 6.4 トップケースとボトムケースのねじ止め
+
+下側5箇所は **M2 8mm ねじ（長い方）**、上側4箇所は **M2 5mm ねじ（短い方）** でねじ止めします。
+
+<div className="image-row">
+  <Image src={topCaseScrew} alt="ねじ止め位置（下側）" />
+  <Image src={topCaseScrew2} alt="ねじ止め位置（上側）" />
+</div>
+
+### 6.5 ゴム足の取り付け
+
+裏側の８箇所にゴム足を貼り付けます。
+
+<div className="image-row">
+  <Image src={bottomPad} alt="底面のゴム足の取り付け位置" />
+</div>
+
+### 6.6 電池カバーの取り付け
+
+電池カバーは裏側から差し込むように取り付けます。カバーは最初は少し硬いですが、何度か取り付けるうちに柔らかくなってきます。
+
+カバーは取り付けるとロックされたような状態になっており、カバーの上部を押さえながら指の腹で少しスライドすると外れる設計になっています。爪を使って無理に引っ張ると爪が割れる可能性があるのでご注意ください。
+
+<div className="image-row">
+  <Image src={batteryCover} alt="電池カバーの取り付け（差し込み）" />
+  <Image src={batteryCover2} alt="電池カバーの取り付け（ロック）" />
+  <Image src={batteryCover3} alt="電池カバーの取り付け完了" />
+</div>
+
+## 完成！
+
+import topCaseFinal from "./img/assembly/6_final.jpeg";
+
+<div className="image-row">
+  <Image src={topCaseFinal} alt="DYA2 完成！" />
+</div>
+
+お疲れさまでした！続いて使い方ガイドをご覧ください。
