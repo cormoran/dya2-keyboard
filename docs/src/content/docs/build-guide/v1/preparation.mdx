@@ -6,6 +6,7 @@ sidebar:
 ---
 
 import { Image } from "astro:assets";
+import { Zoom } from "starlight-image-zoom/components";
 import Checklist from "../../../../components/Checklist.tsx";
 import circuitImage from "./img/preparation_circuit.jpeg";
 import circuitImage2 from "./img/preparation_circuit2.jpeg";
@@ -25,98 +26,51 @@ import screwImage from "./img/preparation_screw.jpeg";
 
 パーツが足りない場合は購入したプラットフォームのメッセージ機能でお早めにご連絡ください。
 
-| カテゴリ               | 内容物                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | 画像                                                                        |
-| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| 回路基板               | <ul><li>基板（厚み 1.6mm、トラックボールセンサー取り付け済み）</li><li>トッププレート（FR4）</li></ul>                                                                                                                                                                                                                                                                                                                                                                                     | <div className="image-row"><Image src={circuitImage} alt="回路基板パック（裏面）" width={155} /><Image src={circuitImage2} alt="回路基板パック（表面）" width={155} /></div> |
-| ケース                 | <ul><li>トップケース 左右</li><li>ボトムケース 左右</li><li>ボトムエンブレム x2</li><li>組み立て済み単４電池ケース x2</li></ul>                                                                                                                                                                                                                                                                                                                                                                         | <Image src={caseImage} alt="ケースパック" width={320} />                    |
-| トラックボールホルダー | <ul><li>トラックボールケース</li><li>セラミックボール x3（取り付け済み）</li><li>センサー固定パーツ</li></ul>                                                                                                                                                                                                                                                                                                                                                                                           | <div className="image-row"><Image src={trackballImage} alt="トラックボールケース（上面）" width={155} /><Image src={trackballImage2} alt="トラックボールケース（側面）" width={155} /></div> |
-| 電子部品パック         | <ul><li>制御基板 x2（２つつながった状態）</li><li>13pin 1.27mm ピッチコンスルー x4（制御基板に取り付け済み）</li><li>タクトスイッチ x4</li><li>TadPole ピン x8</li><li>トラックボールセンサー用レンズ x1</li><li>タッチセンサー端子 x8</li><li>6pin FFC ケーブル x1</li><li>24pin FFC ケーブル x2</li></ul>                                                                                                                                                                                            | <Image src={electricPartsImage} alt="電子部品パック" width={320} />         |
-| 3Dプリント部品パック   | <ul><li>電池カバー x2</li><li>XIAO 固定用カバー x2</li><li>設定スイッチボタン x4</li><li>電源スイッチカバー x2</li><li>リセットボタン x1（右側用）</li></ul>                                                                                                                                                                                                                                                                                                                                                | <Image src={partsImage} alt="部品パック" width={320} />                     |
-| ネジパック             | 以下の3つに分けてパッキングされています。A、B、C の刻印がない場合は画像から判断してください。<ul><li>**A**: ボトムケース内部用<ul><li>電池ケース取り付け用 M2 5mm x4</li><li>制御基板取り付け用 M2 5mm x4、M2 8mm x6</li><li>ナイロンワッシャー x3</li></ul></li><li>**B**: ケース上下固定用<ul><li>上辺固定用 M2 5mm x4</li><li>下辺固定用 M2 8mm x5</li><li>ボトムエンブレム取り付け用 M2 4mm x4（黒色）</li><li>トラックボール取り付け用 M2 4mm x3（黒色）</li></ul></li><li>**C**: タッチセンサー固定用 M2 3mm x8</li></ul> | <Image src={screwImage} alt="ネジパック" width={320} />                     |
-| おまけ                 | 入ってなかったらごめんなさい<ul><li>予備部品 適量</li><li>おすすめのキースイッチ x2〜4<ul><li>マウスの右クリックにおすすめのタクタイルスピードスイッチ</li><li>音が良い気がするリニアスイッチ</li></ul></li></ul>                                                                                                                                                                                                                                                                                       |                                                                             |
+| カテゴリ               | 内容物                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 回路基板               | <ul><li>基板（厚み 1.6mm、トラックボールセンサー取り付け済み）</li><li>トッププレート（FR4）</li></ul> <div className="image-row"><Zoom label="回路基板パック（裏面）"><Image src={circuitImage} alt="回路基板パック（裏面）"  /></Zoom><Zoom label="回路基板パック（表面）"><Image src={circuitImage2} alt="回路基板パック（表面）" /></Zoom></div>                                                                                                                                                                                                                                                                                          |
+| ケース                 | <ul><li>トップケース 左右</li><li>ボトムケース 左右</li><li>ボトムエンブレム x2</li><li>組み立て済み単４電池ケース x2</li></ul> <div className="image-row"><Zoom label="ケースパック"><Image src={caseImage} alt="ケースパック" /></Zoom></div>                                                                                                                                                                                                                                                                                                                                                                                               |
+| トラックボールホルダー | <ul><li>トラックボールケース</li><li>セラミックボール x3（取り付け済み）</li><li>センサー固定パーツ</li></ul> <div className="image-row"><Zoom label="トラックボールケース（上面）"><Image src={trackballImage} alt="トラックボールケース（上面）"  /></Zoom><Zoom label="トラックボールケース（側面）"><Image src={trackballImage2} alt="トラックボールケース（側面）"  /></Zoom></div>                                                                                                                                                                                                                                                      |
+| 電子部品パック         | <ul><li>制御基板 x2（２つつながった状態）</li><li>13pin 1.27mm ピッチコンスルー x4（制御基板に取り付け済み）</li><li>タクトスイッチ x4</li><li>TadPole ピン x8</li><li>トラックボールセンサー用レンズ x1</li><li>タッチセンサー端子 x8</li><li>6pin FFC ケーブル x1</li><li>24pin FFC ケーブル x2</li></ul> <div className="image-row"><Zoom label="電子部品パック"><Image src={electricPartsImage} alt="電子部品パック"  /></Zoom></div>                                                                                                                                                                                                     |
+| 3Dプリント部品パック   | <ul><li>電池カバー x2</li><li>XIAO 固定用カバー x2</li><li>設定スイッチボタン x4</li><li>電源スイッチカバー x2</li><li>リセットボタン x1（右側用）</li></ul> <div className="image-row"><Zoom label="部品パック"><Image src={partsImage} alt="部品パック"  /></Zoom></div>                                                                                                                                                                                                                                                                                                                                                                    |
+| ネジパック             | 以下の3つに分けてパッキングされています。A、B、C の刻印がない場合は画像から判断してください。<ul><li>**A**: ボトムケース内部用<ul><li>電池ケース取り付け用 M2 5mm x4</li><li>制御基板取り付け用 M2 5mm x4、M2 8mm x6</li><li>ナイロンワッシャー x3</li></ul></li><li>**B**: ケース上下固定用<ul><li>上辺固定用 M2 5mm x4</li><li>下辺固定用 M2 8mm x5</li><li>ボトムエンブレム取り付け用 M2 4mm x4（黒色）</li><li>トラックボール取り付け用 M2 4mm x3（黒色）</li></ul></li><li>**C**: タッチセンサー固定用 M2 3mm x8</li></ul> <div className="image-row"><Zoom label="ネジパック"><Image src={screwImage} alt="ネジパック"  /></Zoom></div> |
+| その他                 | <ul><li>ゴム足 x8</li></ul>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| おまけ                 | 在庫状況によって入っていたり入っていなかったりします。入っていなかったらごめんなさい。<ul><li>予備部品 適量</li><li>おすすめのキースイッチ x2〜4<ul><li>マウスの右クリックにおすすめのタクタイルスピードスイッチ</li><li>音が良い気がするリニアスイッチ</li></ul></li></ul>                                                                                                                                                                                                                                                                                                                                                                   |
 
 ## 別途購入が必要な部品
 
-キット以外に、以下の部品をご自身で準備していただく必要があります。チェックボックスで購入済みの部品を管理できます。
+キット以外に、以下の部品をご自身で準備していただく必要があります。
 
-<Checklist
-  storageKey="dya2-preparation-purchase"
-  items={[
-    {
-      id: "xiao",
-      label: "XIAO nRF52840 Plus × 2",
-      sub: [
-        "姉妹品の XIAO nRF52840（Plus なし）は使用できません",
-        "TALPKEYBOARD や勇者工房などで購入できます",
-      ],
-    },
-    {
-      id: "switches",
-      label: "Cherry MX 互換キースイッチ × 72個",
-      sub: [
-        "Kailh Choc low-profile スイッチは使用できません",
-        "左クリック割り当ての M キーにはタクタイルスピードスイッチがおすすめです",
-      ],
-    },
-    {
-      id: "keycaps",
-      label: "キーキャップ（一式）",
-      sub: [
-        "6, 7, Y, G, H, B に相当するキーが左右両方にあります",
-        "YUZU keycaps でオリジナルデザインを公開しています",
-        "英語配列 R4：左 1.25u×3、2.75U×1、1U×1　右 1U×2、トラックボール、1U×4",
-        "日本語配列 R4：左 1.25u×4、1.5U×1、1U×1　右 1U×2、トラックボール、1U×4",
-        "R3 右端の Shift キーが 1U サイズになっています",
-      ],
-    },
-    {
-      id: "trackball",
-      label: "34mm トラックボール用ボール × 1",
-      sub: [
-        "ペリックスの黒、ERGO M575 付属の青では問題ないことを確認しています",
-        "シルバーは動作が不安定でした",
-      ],
-    },
-    {
-      id: "batteries",
-      label: "単４電池 × 2",
-      sub: [
-        "デフォルトのファームウェアはニッケル水素電池の電圧特性を想定した残量計算です",
-      ],
-    },
-    {
-      id: "cables",
-      label: "USB ケーブル × 2",
-      sub: [
-        "PC 接続用：片側が Type-C のケーブル（USB 2.0 以上、データ通信対応）",
-        "左右接続用：Type-C to Type-C ケーブル（USB 2.0 以上、データ通信対応）",
-      ],
-    },
-  ]}
-  client:load
-/>
-
-購入先リンク：[TALPKEYBOARD（XIAO）](https://shop.talpkeyboard.com/products/seeed-studio-xiao-nrf52840-xiao-ble) / [勇者工房（XIAO）](https://shop.yushakobo.jp/products/10946) / [YUZU keycaps](https://yuzukeycaps.com/c/333f67eb-9f7d-4774-9740-c19d98eecc7f)
+- XIAO nRF52840 Plus
+  - 姉妹品の XIAO nRF52840（Plus なし）は**使用できません**
+  - [TALPKEYBOARD](https://shop.talpkeyboard.com/products/seeed-studio-xiao-nrf52840-xiao-ble) や[勇者工房](https://shop.yushakobo.jp/products/10946)などで購入できます
+- Cherry MX 互換キースイッチ × 72個
+  - Kailh Choc low-profile スイッチは**使用できません**
+  - 左クリック割り当ての M キーにはタクタイルスピードスイッチがおすすめです
+- キーキャップ（一式）
+  - 6, 7, Y, G, H, B に相当するキーが左右両方にあります
+  - [YUZU keycaps](https://yuzukeycaps.com/c/333f67eb-9f7d-4774-9740-c19d98eecc7f) でオリジナルデザインを公開しています。必要なキーキャップの確認にもご利用ください。
+  - 英語配列 R4：左 1.25u×3、2.75U×1、1U×1　右 1U×2、トラックボール、1U×4
+  - 日本語配列 R4：左 1.25u×4、1.5U×1、1U×1　右 1U×2、トラックボール、1U×4
+  - R3 右端の Shift キーが 1U サイズになっています
+- 34mm トラックボール用ボール × 1
+  - ボールの色によって安定性が異なる可能性があります
+  - ペリックスの黒、ERGO M575 付属の青では動作することを確認しています
+  - シルバーは動作が不安定でケース設計を調整中です
+- 両面テープ
+  - タッチセンサーの固定に使用します
+- 単４電池 × 2
+  - デフォルトのファームウェアはニッケル水素電池の電圧特性を想定した残量計算になっています
+- USB ケーブル × 2
+  - PC 接続用：片側が Type-C のケーブル（USB 2.0 以上、データ通信対応）
+  - 左右接続用：Type-C to Type-C ケーブル（USB 2.0 以上、データ通信対応）
 
 ## 必要な工具
 
-<Checklist
-  storageKey="dya2-preparation-tools"
-  items={[
-    {
-      id: "nipper",
-      label: "ニッパー",
-      sub: ["基板の切り離しに使用します"],
-    },
-    {
-      id: "screwdriver",
-      label: "プラスドライバー（0番と1番サイズ）",
-    },
-    {
-      id: "soldering",
-      label: "はんだごて（オプション）",
-      sub: ["必須ではありませんが、いくつかはんだ付け推奨箇所があります"],
-    },
-  ]}
-  client:load
-/>
+- ニッパー、ペンチ
+  - 基板の切り離しに使用します
+- プラスドライバー（0番と1番サイズ）
+- はんだごて（オプション）
+  - 必須ではありませんが、いくつかはんだ付け推奨箇所があります
+- ピンセット（オプション）
+  - 小さな部品の取り扱いに便利です

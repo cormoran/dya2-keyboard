@@ -10,15 +10,20 @@ td {
 .image-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem;
-  margin-block: 1rem;
-  align-items: flex-start;
+}
+
+.image-row > * {
+  margin-top: 0;
+  flex: 1 1 200px;
+  padding: 0.25rem;
+  /* flex-grow: 0; */
+  min-width: 200px;
+  max-height: 300px;
 }
 
 .image-row img {
-  flex: 1 1 auto;
-  min-width: 200px;
   max-width: 100%;
+  max-height: 100%;
   height: auto;
   object-fit: contain;
 }
@@ -83,4 +88,8 @@ td {
   margin-left: 1.625rem;
   font-size: 0.875rem;
   color: var(--sl-color-gray-3);
+}
+
+.sl-markdown-content td {
+  min-width: 14rem;
 }

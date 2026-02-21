@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
+import starlightImageZoom from "starlight-image-zoom";
 import starlightThemeNova from "starlight-theme-nova";
 
 import react from "@astrojs/react";
@@ -9,9 +10,17 @@ import react from "@astrojs/react";
 export default defineConfig({
   site: "https://cormoran.github.io",
   base: "dya2-keyboard",
+  vite: {
+    resolve: {
+      dedupe: ["react", "react-dom"],
+    },
+  },
+  image: {
+    layout: "constrained",
+  },
   integrations: [
     starlight({
-      plugins: [starlightThemeNova()],
+      plugins: [starlightImageZoom(), starlightThemeNova()],
       title: "DYA2",
       logo: {
         src: "./src/assets/dya.svg",

@@ -1,6 +1,6 @@
 ---
 title: 組み立ての流れ
-description: DYA2 v1.0の組み立てガイドです
+description: DYA2 v1 の組み立てガイドです
 sidebar:
   order: 0
 ---
@@ -25,6 +25,7 @@ DYA2 は基本的にははんだ付けなしで組み立てられるように設
 - 組み立てに失敗した場合や、うまく動かない場合も可能な限りサポートしますのでお気軽にご相談ください
 
 サポートの連絡先：
+
 - [Booth メッセージ](https://cormoran707.booth.pm/items/7627440)
 - [GitHub Issues](https://github.com/cormoran/dya2-keyboard/issues)
 
@@ -37,6 +38,6 @@ DYA2 は基本的にははんだ付けなしで組み立てられるように設
 
 | 日付       | 内容                        |
 | ---------- | --------------------------- |
-| 2026/02/19 | v1.1 向けビルドガイドを公開 |
+| 2026/02/21 | v1.1 向けビルドガイドを公開 |
 
 細かな変更は[github の変更履歴](https://github.com/cormoran/dya2-keyboard/commits/main/)をご覧ください。
