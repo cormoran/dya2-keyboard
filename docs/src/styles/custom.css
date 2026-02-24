@@ -12,6 +12,12 @@ td {
   padding-inline-start: 1rem;
 }
 
+.sl-markdown-content ol {
+  list-style: decimal;
+  list-style-position: outside;
+  padding-inline-start: 1rem;
+}
+
 html[data-theme="dark"] .hide-on-dark-mode {
   display: none !important;
 }
