@@ -74,6 +74,7 @@ M2 5mm ねじに適合するドライバーは１番サイズです。
 
 ### 2.2 制御基板の組み立て
 
+import xiaoCut from "./img/assembly/xiao_cut.jpeg";
 import xiaoBoardAndCover from "./img/assembly/2_2_1_xiao_board_and_cover.jpeg";
 import xiaoAttached from "./img/assembly/2_2_1_xiao_attached.jpeg";
 import xiaoAttachedBoth from "./img/assembly/2_2_1_xiao_attached_both.jpeg";
@@ -89,6 +90,13 @@ import ffcLeft from "./img/assembly/2_2_3_ffc_left.jpeg";
 1. 制御基板を切り離す
 
    ２つの制御基板が繋がった状態で届いた場合は、基板を切り離します。手で折り曲げるだけで切り離せます。
+
+1. 制御基板の XIAO のリセットスイッチにかぶる部分が切り欠きになっていることを確認する。
+   もし画像の状態と違う場合はニッパーなどで出っ張りを切断し、以下の画像のようにしてください。これをしないと右側をボトムケースに取り付けるときにリセットスイッチが高確率で破損します。
+
+   <div className="image-row">
+     <Image src={xiaoCut} alt="制御基板の切り欠き" />
+   </div>
 
 1. **XIAO をコンスルーにはめ込む**
 
