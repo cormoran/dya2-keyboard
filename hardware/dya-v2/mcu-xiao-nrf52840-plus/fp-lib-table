@@ -1,0 +1,5 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "0_dya-kbd")(type "KiCad")(uri "${KIPRJMOD}/../../kicad_library/dya-kbd.pretty")(options "")(descr ""))
+  (lib (name "kicad_library")(type "KiCad")(uri "${KIPRJMOD}/../../kicad_library")(options "")(descr ""))
+)
