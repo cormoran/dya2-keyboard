@@ -72,6 +72,10 @@ export default defineConfig({
           autogenerate: { directory: "build-guide/v1" },
         },
         {
+          label: "25mm トラックボール",
+          link: "/build-guide/25mm-trackball/",
+        },
+        {
           label: "使い方ガイド",
           autogenerate: { directory: "feature-guide" },
         },
