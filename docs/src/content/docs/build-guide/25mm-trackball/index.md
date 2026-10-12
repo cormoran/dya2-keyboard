@@ -106,7 +106,7 @@ FFC ケーブルの抜き差しは、必ずコネクタのロックを開いて�
     <tr><td>ペリックス 赤玉 PERIPRO-305GRD</td></tr>
     <tr>
       <td>Keychron Nape Pro 25mm ボール（白・青・シルバー）</td>
-      <td>黒は反応が確認できていません</td>
+      <td><strong>黒は動きません</strong></td>
     </tr>
   </tbody>
   <tbody>
