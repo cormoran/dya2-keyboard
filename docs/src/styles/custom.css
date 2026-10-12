@@ -113,3 +113,8 @@ html[data-theme="light"] .hide-on-light-mode {
 .sl-markdown-content td {
   min-width: 14rem;
 }
+
+/* Keep assembly photos compact; image zoom retains the full-size view. */
+.trackball-guide-photo {
+  max-width: 30rem;
+}
